@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Amanda Sokolowski" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bear, Ninja, Hunter</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <main class="wrapper">
+    <h2>Bear, Ninja, Hunter</h2>
+    <p class="subtitle">Play against the computer!</p>
+
+    <ul class="rules">
+      <li>The Bear beats the Hunter.</li>
+      <li>The Hunter beats the Ninja.</li>
+      <li>And the Ninja beats the Bear.</li>
+    </ul>
+
+    <p class="choice-label">Click a button below to select your choice.</p>
+
+    <hr class="divider" />
+
+    <div class="buttons" role="group" aria-label="Game choices">
+      <button class="choice" data-choice="Bear">Bear</button>
+      <button class="choice" data-choice="Ninja">Ninja</button>
+      <button class="choice" data-choice="Hunter">Hunter</button>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Hidden until a single game is played -->
+    <section id="results" class="hidden" aria-live="polite">
+      <div id="result-box" class="result-box"></div>
+      <div id="score" class="score"></div>
+      <hr class="divider small" />
+      <button id="play-again" class="play-again">Play Again?</button>
+    </section>
+  </main>
+</body>
+</html>
