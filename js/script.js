@@ -1,20 +1,14 @@
-// Bear, Ninja, Hunter — Functions 1 (Revisited)
-
 (() => {
   const CHOICES = ["Bear", "Ninja", "Hunter"];
-
-  // Running totals 
   let playerWins = 0;
   let computerWins = 0;
 
-  // Elements
   const resultsSection = document.getElementById("results");
   const resultBox = document.getElementById("result-box");
   const score = document.getElementById("score");
   const playAgainBtn = document.getElementById("play-again");
   const choiceButtons = document.querySelectorAll(".choice");
 
-  //  choice buttons
   choiceButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       const playerChoice = btn.dataset.choice;
@@ -25,7 +19,6 @@
     });
   });
 
-  // Back to initial display
   playAgainBtn.addEventListener("click", showInitial);
 
   function getComputerChoice() {
@@ -33,17 +26,9 @@
     return CHOICES[idx];
   }
 
-
-  // Bear > Hunter, Hunter > Ninja, Ninja > Bear
   function decideWinner(player, computer) {
     if (player === computer) return "tie";
-
-    const winsAgainst = {
-      Bear: "Hunter",
-      Hunter: "Ninja",
-      Ninja: "Bear",
-    };
-
+    const winsAgainst = { Bear: "Hunter", Hunter: "Ninja", Ninja: "Bear" };
     return winsAgainst[player] === computer ? "player" : "computer";
   }
 
@@ -58,22 +43,21 @@
       outcome === "computer" ? "The computer wins!" :
       "It's a tie!";
 
-  
     resultBox.innerHTML = `
       <div>You chose ${player}.</div>
       <div>The computer chose ${computer}.</div>
       <div>${outcomeText}</div>
     `;
 
-    // Centered win counter under the box
-    score.textContent = `Your Wins: ${playerWins}   Computer Wins: ${computerWins}`;
+    score.innerHTML = `
+      <div>Your Wins: ${playerWins}</div>
+      <div>Computer Wins: ${computerWins}</div>
+    `;
 
-    // Show results 
     resultsSection.classList.remove("hidden");
   }
 
   function showInitial() {
-    // Hide results
     resultsSection.classList.add("hidden");
     resultBox.textContent = "";
     score.textContent = "";
